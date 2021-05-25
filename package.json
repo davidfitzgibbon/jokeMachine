@@ -1,0 +1,23 @@
+{
+  "name": "jokeMachine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "updatefeed.js",
+  "scripts": {
+    "build": "node updatefeed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidfitzgibbon/jokeMachine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidfitzgibbon/jokeMachine/issues"
+  },
+  "homepage": "https://github.com/davidfitzgibbon/jokeMachine#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

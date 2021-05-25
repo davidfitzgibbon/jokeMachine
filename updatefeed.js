@@ -1,9 +1,7 @@
-var parser = require("xml2json");
 var fetch = require("node-fetch");
 var fs = require("fs");
 
-const feedUrl =
-  "https://independent.bbvms.com/mrss/video_section/1620815501871799";
+const feedUrl = "https://icanhazdadjoke.com/";
 
 const saveAsFile = (data) => {
   fs.writeFile("public/feed.json", data, function (err) {
@@ -13,10 +11,16 @@ const saveAsFile = (data) => {
     console.log("The file was saved!");
   });
 };
-const convertFile = (xml) => {
-  var data = parser.toJson(xml, { object: true });
-  return JSON.stringify(data);
-};
 
-const feed = fetch(feedUrl);
-feed.then((res) => res.text()).then((body) => saveAsFile(convertFile(body)));
+const feed = fetch(feedUrl, {
+  headers: { Accept: "application/json" },
+  // headers: { "Content-Type": "application/json" },
+});
+feed
+  .then((res) => res.text())
+  .then((body) => {
+    body = JSON.parse(body);
+    body.updatedAt = new Date();
+    body = JSON.stringify(body);
+    return saveAsFile(body);
+  });
