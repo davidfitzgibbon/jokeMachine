@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke timing</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      const feed = fetch("/feed.json");
+      feed
+        .then((res) => res.text())
+        .then((data) => {
+          data = JSON.parse(data);
+          let date = new Date(data.updatedAt);
+          date = date.toLocaleString();
+
+          document.body.innerHTML = `
+            <h1>${data.joke}</h1>
+            <h2>Updated: ${date}</h2>
+          `;
+        });
+    </script>
+  </body>
+</html>
