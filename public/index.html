@@ -4,10 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Joke timing</title>
+    <title>jokeMachine</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+      .joke {
+        max-width: 300px;
+      }
+      h1 {
+        font-family: "Patrick Hand", cursive;
+        color: #444;
+      }
+      h2 {
+        font-size: 1rem;
+        font-weight: 100;
+        margin-top: 1rem;
+        color: crimson;
       }
     </style>
   </head>
@@ -22,8 +49,10 @@
           date = date.toLocaleString();
 
           document.body.innerHTML = `
-            <h1>${data.joke}</h1>
-            <h2>Updated: ${date}</h2>
+            <div class=joke>  
+              <h1>${data.joke}</h1>
+              <h2>Updated: ${date}</h2>
+            </div>
           `;
         });
     </script>
